@@ -1,14 +1,19 @@
 import { StyledInput } from "./style";
 
-interface IInputProps {
+interface iInputProps {
   placeholder: string;
   inputStyle: string;
+  type: string;
 }
 
-const Input = ({ placeholder, inputStyle }: IInputProps) => {
+const Input = ({ placeholder, type, inputStyle }: iInputProps) => {
   return (
     <>
-      <StyledInput placeholder={placeholder} inputStyle={inputStyle} />
+      <StyledInput
+        type={type}
+        placeholder={placeholder}
+        inputStyle={inputStyle}
+      />
     </>
   );
 };
