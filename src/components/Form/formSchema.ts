@@ -29,4 +29,7 @@ export const formSchemaRegister = yup.object().shape({
     .matches(/(?=.*?[0-9])/, "É necessário pelo menos um número.")
     .matches(/(?=.*[!@#$%^&*])/, "Deve conter pelo menos um caracter especial")
     .min(6, "Deve conter pelo menos 6 dígitos"),
+  passwordConfirmation: yup
+    .string()
+    .oneOf([yup.ref("password"), null], "As senhas devem ser iguais"),
 });

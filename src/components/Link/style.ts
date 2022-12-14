@@ -67,6 +67,23 @@ export const StyledLink = styled(Link)`
             background-color: var(--grey-300);
           }
         `;
+      case "default-link":
+        return css`
+          color: var(--grey-300);
+
+          font-size: var(--font-size-5);
+          font-weight: var(--font-weight-3);
+
+          text-decoration: underline;
+
+          padding: 0;
+
+          text-transform: none;
+
+          :hover {
+            color: var(--grey-600);
+          }
+        `;
     }
   }}
 `;

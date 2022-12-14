@@ -1,3 +1,4 @@
+import { TextField } from "@mui/material";
 import { StyledInput } from "./style";
 
 interface iInputProps {
@@ -6,7 +7,7 @@ interface iInputProps {
   type: string;
 }
 
-const Input = ({ placeholder, type, inputStyle }: iInputProps) => {
+const Input = ({ placeholder, type, inputStyle, ...rest }: iInputProps) => {
   return (
     <>
       <StyledInput

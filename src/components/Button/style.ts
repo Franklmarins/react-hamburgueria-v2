@@ -40,6 +40,18 @@ export const StyledButton = styled.button`
             background-color: var(--grey-300);
           }
         `;
+      case "default-grey-2":
+        return css`
+          height: 60px;
+
+          color: var(--grey-300);
+          background-color: var(--grey-0);
+
+          :hover {
+            color: var(--grey-600);
+            background-color: var(--grey-100);
+          }
+        `;
       case "medium-primary":
         return css`
           height: 40px;
