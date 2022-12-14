@@ -7,9 +7,7 @@ export const StyledForm = styled.form`
 
   width: 100%;
 
-  span {
-    margin-top: -10px;
-
+  p {
     font-size: var(--font-size-6);
 
     text-align: start;

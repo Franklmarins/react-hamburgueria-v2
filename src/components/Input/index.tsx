@@ -7,7 +7,7 @@ interface iInputProps {
   type: string;
 }
 
-const Input = ({ placeholder, type, inputStyle, ...rest }: iInputProps) => {
+const Input = ({ placeholder, type, inputStyle }: iInputProps) => {
   return (
     <>
       <StyledInput

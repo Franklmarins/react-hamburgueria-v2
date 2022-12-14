@@ -37,10 +37,12 @@ export const StyledInput = styled.input`
 
           border: 2px solid var(--grey-100);
 
+          outline: none;
+
           ::placeholder {
             color: var(--grey-100);
           }
-          :hover,
+
           :focus {
             border: 2px solid var(--grey-600);
             ::placeholder {

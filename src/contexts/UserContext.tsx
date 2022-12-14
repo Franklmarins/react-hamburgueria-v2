@@ -49,7 +49,6 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
             render({ data }) {
               localStorage.clear();
               localStorage.setItem("token", data.accessToken);
-              localStorage.setItem("userID", data.user.id);
 
               navigate("/home");
               return `Olá ${data.user.name}, seja bem-vindo! 👌`;

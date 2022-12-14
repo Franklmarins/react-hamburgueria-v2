@@ -30,23 +30,23 @@ const Form = () => {
     return (
       <StyledForm onSubmit={handleSubmit(submit)}>
         <TextField
+          helperText={errors.email?.message}
+          color={errors.email?.message ? "error" : "success"}
           id="email"
           label="Digite o seu email"
           variant="outlined"
           {...register("email")}
         />
 
-        {errors.email?.message && <span>{errors.email.message}</span>}
-
         <TextField
+          helperText={errors.password?.message}
+          color={errors.password?.message ? "error" : "success"}
           type="password"
           id="password"
           label="Digite sua senha"
           variant="outlined"
           {...register("password")}
         />
-
-        {errors.password?.message && <span>{errors.password.message}</span>}
 
         <Button type="submit" buttonStyle="default-primary">
           Logar
@@ -59,6 +59,8 @@ const Form = () => {
     return (
       <StyledForm onSubmit={handleSubmit(submit)}>
         <TextField
+          helperText={errors.name?.message}
+          color={errors.name?.message ? "error" : "success"}
           type="text"
           id="name"
           label="Digite seu nome"
@@ -66,18 +68,18 @@ const Form = () => {
           {...register("name")}
         />
 
-        {errors.name?.message && <span>{errors.name.message}</span>}
-
         <TextField
+          helperText={errors.email?.message}
+          color={errors.email?.message ? "error" : "success"}
           id="email"
           label="Digite o seu email"
           variant="outlined"
           {...register("email")}
         />
 
-        {errors.email?.message && <span>{errors.email.message}</span>}
-
         <TextField
+          helperText={errors.password?.message}
+          color={errors.password?.message ? "error" : "success"}
           type="password"
           id="password"
           label="Digite sua senha"
@@ -85,19 +87,15 @@ const Form = () => {
           {...register("password")}
         />
 
-        {errors.password?.message && <span>{errors.password.message}</span>}
-
         <TextField
+          helperText={errors.passwordConfirmation?.message}
+          color={errors.passwordConfirmation?.message ? "error" : "success"}
           type="password"
           id="passwordConfirmation"
           label="Digite sua senha novamente"
           variant="outlined"
           {...register("passwordConfirmation")}
         />
-
-        {errors.passwordConfirmation?.message && (
-          <span>{errors.passwordConfirmation.message}</span>
-        )}
 
         <Button type="submit" buttonStyle="default-grey-2">
           Cadastrar
