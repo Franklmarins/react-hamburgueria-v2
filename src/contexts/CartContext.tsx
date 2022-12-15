@@ -8,6 +8,11 @@ export const CartProvider = ({ children }: iProviderProps) => {
   const [showModal, setShowModal] = useState(false);
   const [cart, setCart] = useState([] as iProduct[]);
 
+  const cartValues = cart.reduce(
+    (prev, curr) => prev + curr.price * Number(curr.count),
+    0
+  );
+
   const addItemToCart = (product: iProduct) => {
     const productExist = cart.find((item) => item.id === product.id);
 
@@ -76,6 +81,7 @@ export const CartProvider = ({ children }: iProviderProps) => {
         handleDecrementCount,
         deleteCartProduct,
         removeAllProductCart,
+        cartValues,
       }}
     >
       {children}

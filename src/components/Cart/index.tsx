@@ -11,6 +11,7 @@ const Cart = () => {
     handleDecrementCount,
     deleteCartProduct,
     removeAllProductCart,
+    cartValues,
   } = React.useContext(CartContext);
 
   return (
@@ -45,7 +46,12 @@ const Cart = () => {
       <section>
         <div>
           <span>Total</span>
-          <span>R$ 14,00</span>
+          <span>
+            {cartValues.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            })}
+          </span>
         </div>
         <Button
           onClick={() => removeAllProductCart()}

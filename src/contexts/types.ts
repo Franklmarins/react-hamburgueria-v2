@@ -40,4 +40,5 @@ export interface iCartContext {
   handleDecrementCount: (item: number) => void;
   deleteCartProduct: (item: number) => void;
   removeAllProductCart: () => void;
+  cartValues: number;
 }
