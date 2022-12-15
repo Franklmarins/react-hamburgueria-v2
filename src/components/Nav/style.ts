@@ -4,6 +4,10 @@ export const StyledNav = styled.nav`
   padding: 10px 16px;
   background: var(--grey-0);
 
+  button {
+    color: #bdbdbd;
+  }
+
   @media (max-width: 900px) {
     img {
       width: 30%;
@@ -17,6 +21,30 @@ export const StyledNav = styled.nav`
       display: flex;
       align-items: center;
       gap: 20px;
+    }
+  }
+  .cart {
+    position: relative;
+    > span {
+      position: absolute;
+
+      top: -15px;
+      right: -10px;
+
+      padding: 4px;
+
+      background: var(--color-primary);
+
+      color: #ffffff;
+
+      font-size: var(--font-size-5);
+      font-weight: var(--font-weight-1);
+
+      border-radius: 7px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 `;

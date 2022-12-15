@@ -1,8 +1,21 @@
-import { createContext } from "react";
-import { iProviderProps } from "./types";
+import { createContext, useState } from "react";
+import { iCartContext, iProviderProps } from "./types";
 
-export const CartContext = createContext({});
+export const CartContext = createContext<iCartContext>({} as iCartContext);
 
 export const CartProvider = ({ children }: iProviderProps) => {
-  return <CartContext.Provider value={{}}>{children}</CartContext.Provider>;
+  const [showModal, setShowModal] = useState(false);
+
+  const addModal = () => {
+    setShowModal(true);
+  };
+  const removeModal = () => {
+    setShowModal(false);
+  };
+
+  return (
+    <CartContext.Provider value={{ showModal, addModal, removeModal }}>
+      {children}
+    </CartContext.Provider>
+  );
 };

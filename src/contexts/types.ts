@@ -29,3 +29,9 @@ export interface iProductsContext {
   filter: never[];
   setSearch: Dispatch<SetStateAction<string>>;
 }
+
+export interface iCartContext {
+  showModal: boolean;
+  addModal: () => void;
+  removeModal: () => void;
+}
