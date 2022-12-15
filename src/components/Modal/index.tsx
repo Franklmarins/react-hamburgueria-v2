@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
+import Cart from "../Cart";
 import EmptyBag from "./EmptyBag";
 import { StyledModal } from "./style";
 
 const Modal = () => {
-  const { removeModal } = useContext(CartContext);
+  const { removeModal, cart } = useContext(CartContext);
 
   return (
     <StyledModal>
@@ -15,7 +16,7 @@ const Modal = () => {
             X
           </button>
         </div>
-        <EmptyBag />
+        {cart.length === 0 ? <EmptyBag /> : <Cart />}
       </div>
     </StyledModal>
   );

@@ -26,7 +26,7 @@ export interface iUserContext {
 }
 
 export interface iProductsContext {
-  filter: never[];
+  filter: iProduct[];
   setSearch: Dispatch<SetStateAction<string>>;
 }
 
@@ -34,4 +34,10 @@ export interface iCartContext {
   showModal: boolean;
   addModal: () => void;
   removeModal: () => void;
+  addItemToCart: (item: iProduct) => void;
+  cart: iProduct[];
+  handleIncrementCount: (item: number) => void;
+  handleDecrementCount: (item: number) => void;
+  deleteCartProduct: (item: number) => void;
+  removeAllProductCart: () => void;
 }

@@ -10,7 +10,7 @@ import { CartContext } from "../../contexts/CartContext";
 
 const Nav = () => {
   const { logOut } = useContext(UserContext);
-  const { addModal } = useContext(CartContext);
+  const { addModal, cart } = useContext(CartContext);
 
   return (
     <StyledNav>
@@ -20,7 +20,7 @@ const Nav = () => {
           <div>
             <Search />
             <div className="cart">
-              <span>0</span>
+              <span>{cart.length}</span>
               <button onClick={addModal}>
                 <ShoppingCartIcon />
               </button>

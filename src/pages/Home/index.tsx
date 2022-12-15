@@ -13,6 +13,7 @@ export interface iProduct {
   img: string;
   name: string;
   price: number;
+  count?: number | undefined;
 }
 
 const Home = () => {
@@ -27,9 +28,10 @@ const Home = () => {
         <Container>
           <main>
             <ul>
-              {filter.map((product: iProduct) => {
+              {filter.map((product) => {
                 return (
                   <Card
+                    product={product}
                     key={product.id}
                     name={product.name}
                     category={product.category}

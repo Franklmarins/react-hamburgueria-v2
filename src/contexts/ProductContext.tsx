@@ -1,27 +1,32 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { iProduct } from "../pages/Home";
 import { api } from "../services/api";
 import { iProductsContext, iProviderProps } from "./types";
+import { UserContext } from "./UserContext";
 
 export const ProductContext = createContext<iProductsContext>(
   {} as iProductsContext
 );
 
 export const ProductProvider = ({ children }: iProviderProps) => {
-  const [products, setProducts] = useState([]);
+  const { local } = useContext(UserContext);
+
+  const [products, setProducts] = useState([] as iProduct[]);
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    if (local.pathname === "/home") {
+      const token = localStorage.getItem("token");
 
-    const getProducts = async () => {
-      const response = await api.get("products", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const getProducts = async () => {
+        const response = await api.get("products", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
 
-      setProducts(response.data);
-    };
-    getProducts();
+        setProducts(response.data);
+      };
+      getProducts();
+    }
   }, []);
 
   const filter = !search

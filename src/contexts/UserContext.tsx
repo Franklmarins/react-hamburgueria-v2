@@ -14,8 +14,11 @@ export const UserProvider = ({ children }: iProviderProps) => {
 
   const submit: SubmitHandler<iFormValues> = (data) => {
     if (local.pathname === "/register") {
-      const { email, name, password } = data;
-      const newData = { email, name, password };
+      const newData = {
+        email: data.email,
+        name: data.name,
+        password: data.password,
+      };
 
       toast.promise(
         api.post("/users", newData).then((response) => {
