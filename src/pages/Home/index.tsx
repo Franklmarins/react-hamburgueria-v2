@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useContext } from "react";
 import Card from "../../components/Card";
 import Nav from "../../components/Nav";
-import { api } from "../../services/api";
+import { ProductContext } from "../../contexts/ProductContext";
 import { Container } from "../../styles/container";
 import { StyledHome } from "./style";
 
@@ -14,20 +14,7 @@ export interface iProduct {
 }
 
 const Home = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-
-    const getProducts = async () => {
-      const response = await api.get("products", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-
-      setProducts(response.data);
-    };
-    getProducts();
-  }, []);
+  const { filter } = useContext(ProductContext);
 
   return (
     <StyledHome>
@@ -35,7 +22,7 @@ const Home = () => {
       <Container>
         <main>
           <ul>
-            {products.map((product: iProduct) => {
+            {filter.map((product: iProduct) => {
               return (
                 <Card
                   key={product.id}

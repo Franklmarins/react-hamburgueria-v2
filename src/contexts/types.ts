@@ -1,6 +1,8 @@
+import { Dispatch, SetStateAction } from "react";
 import { SubmitHandler } from "react-hook-form";
+import { iProduct } from "../pages/Home";
 
-export interface iUserProviderProps {
+export interface iProviderProps {
   children: React.ReactNode;
 }
 
@@ -20,4 +22,10 @@ export interface iUserContext {
     state: string | null;
     key: string;
   };
+  logOut: () => void;
+}
+
+export interface iProductsContext {
+  filter: never[];
+  setSearch: Dispatch<SetStateAction<string>>;
 }

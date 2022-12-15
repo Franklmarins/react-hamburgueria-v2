@@ -4,11 +4,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { api } from "../services/api";
-import { iFormValues, iUserContext, iUserProviderProps } from "./types";
+import { iFormValues, iUserContext, iProviderProps } from "./types";
 
-export const UserContext = createContext({} as iUserContext);
+export const UserContext = createContext<iUserContext>({} as iUserContext);
 
-export const UserProvider = ({ children }: iUserProviderProps) => {
+export const UserProvider = ({ children }: iProviderProps) => {
   const local = useLocation();
   const navigate = useNavigate();
 
@@ -19,11 +19,10 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
 
       toast.promise(
         api.post("/users", newData).then((response) => {
-          console.log(response.data);
           return response.data;
         }),
         {
-          pending: "Logando...",
+          pending: "Cadastrando...",
           success: {
             render() {
               navigate("/login");
@@ -64,8 +63,16 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     }
   };
 
+  const logOut = () => {
+    toast.info("Deslogado com sucesso!");
+
+    localStorage.clear();
+
+    navigate("/login");
+  };
+
   return (
-    <UserContext.Provider value={{ submit, local }}>
+    <UserContext.Provider value={{ submit, local, logOut }}>
       {children}
     </UserContext.Provider>
   );

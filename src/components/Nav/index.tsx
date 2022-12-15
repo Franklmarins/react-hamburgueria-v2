@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container } from "../../styles/container";
 import { StyledNav } from "./style";
 import logo from "./../../assets/BurguerKenzieLogo.svg";
 import Search from "../Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { UserContext } from "../../contexts/UserContext";
 
 const Nav = () => {
+  const { logOut } = useContext(UserContext);
+
   return (
     <StyledNav>
       <Container>
@@ -17,7 +20,9 @@ const Nav = () => {
             <div>
               <ShoppingCartIcon />
             </div>
-            <LogoutIcon />
+            <button onClick={logOut}>
+              <LogoutIcon />
+            </button>
           </div>
         </div>
       </Container>
