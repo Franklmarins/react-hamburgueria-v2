@@ -21,7 +21,7 @@ const Cart = () => {
           return (
             <div key={product.id}>
               <div>
-                <img src={product.img} alt="" />
+                <img src={product.img} alt={product.name} />
               </div>
               <div>
                 <p>{product.name}</p>
