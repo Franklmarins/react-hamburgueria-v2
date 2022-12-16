@@ -7,7 +7,6 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { UserContext } from "../../contexts/UserContext";
 import { CartContext } from "../../contexts/CartContext";
-import { height } from "@mui/system";
 
 const Nav = () => {
   const { logOut } = useContext(UserContext);
