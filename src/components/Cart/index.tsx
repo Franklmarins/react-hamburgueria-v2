@@ -24,12 +24,14 @@ const Cart = () => {
                 <img src={product.img} alt={product.name} />
               </div>
               <div>
-                <p>{product.name}</p>
+                <h3>{product.name}</h3>
                 <div>
                   <button onClick={() => handleDecrementCount(product.id)}>
                     -
                   </button>
-                  <span>{product.count}</span>
+                  <div>
+                    <span>{product.count}</span>
+                  </div>
                   <button onClick={() => handleIncrementCount(product.id)}>
                     +
                   </button>
