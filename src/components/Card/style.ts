@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const StyledLi = styled.li`
   max-height: 361px;
-  width: 300px;
+  min-width: 300px;
+  max-width: 300px;
 
   border: 2px solid var(--grey-100);
   border-radius: 5px;

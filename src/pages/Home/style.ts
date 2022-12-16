@@ -12,4 +12,14 @@ export const StyledHome = styled.div`
     flex-wrap: wrap;
     gap: 20px;
   }
+  @media (max-width: 900px) {
+    ul {
+      flex-wrap: nowrap;
+      overflow: auto;
+      align-items: flex-start;
+      justify-content: flex-start;
+      width: 110%;
+      margin-left: -5%;
+    }
+  }
 `;

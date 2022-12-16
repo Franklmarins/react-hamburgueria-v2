@@ -1,4 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+interface iButtonStyleSearch {
+  buttonStyleSearch?: string;
+}
 
 export const StyledSearch = styled.div`
   position: relative;
@@ -19,10 +23,26 @@ export const StyledSearch = styled.div`
     justify-content: center;
 
     border-radius: 8px;
+
+    > svg {
+      color: #ffffff;
+    }
   }
-  svg {
-    color: #ffffff;
-  }
+
   > input {
+    width: 100%;
   }
+
+  ${({ buttonStyleSearch }: iButtonStyleSearch) => {
+    switch (buttonStyleSearch) {
+      case "white":
+        return css`
+          color: #ffffff;
+        `;
+      case "grey":
+        return css`
+          color: #bdbdbd;
+        `;
+    }
+  }}
 `;
