@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import image from "./../../assets/menuImage.svg";
 
 export const StyledLogin = styled.div`
   section:nth-child(1) {
@@ -6,7 +7,7 @@ export const StyledLogin = styled.div`
     img {
       margin-top: 53px;
     }
-    > div {
+    > div:nth-child(2) {
       margin-top: 30px;
       display: flex;
       align-items: center;
@@ -16,6 +17,8 @@ export const StyledLogin = styled.div`
 
       border: 1px solid var(--grey-100);
       border-radius: 5px;
+
+      box-shadow: 0px 0px 30px -20px rgba(0, 0, 0, 0.25);
 
       > div {
         min-width: 60px;
@@ -39,6 +42,7 @@ export const StyledLogin = styled.div`
       > p {
         font-size: var(--font-size-5);
         font-weight: var(--font-weight-3);
+
         color: var(--grey-300);
         > span {
           color: var(--grey-600);
@@ -60,6 +64,8 @@ export const StyledLogin = styled.div`
 
     margin-bottom: 20px;
 
+    box-shadow: 0px 0px 30px -20px rgba(0, 0, 0, 0.25);
+
     > h3 {
       margin-bottom: 19px;
 
@@ -73,6 +79,33 @@ export const StyledLogin = styled.div`
       font-weight: var(--font-weight-3);
 
       color: #999999;
+    }
+  }
+
+  @media (min-width: 900px) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+
+    gap: 60px;
+
+    section:nth-child(1) {
+      > div:nth-child(2) {
+        max-width: 377px;
+
+        margin-bottom: 30px;
+      }
+      > div:nth-child(3) {
+        height: 80px;
+        background-image: url(${image});
+        background-repeat: no-repeat;
+      }
+    }
+    section:nth-child(2) {
+      width: 500px;
     }
   }
 `;

@@ -7,6 +7,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { UserContext } from "../../contexts/UserContext";
 import { CartContext } from "../../contexts/CartContext";
+import { height } from "@mui/system";
 
 const Nav = () => {
   const { logOut } = useContext(UserContext);
@@ -17,27 +18,21 @@ const Nav = () => {
   return (
     <StyledNav>
       <Container>
-        {showSearch ? (
+        <div>
+          <img src={logo} alt="logo-burguer-kenzie" />
           <div>
             <Search showSearch={showSearch} setShowSearch={setShowSearch} />
-          </div>
-        ) : (
-          <div>
-            <img src={logo} alt="logo-burguer-kenzie" />
-            <div>
-              <Search showSearch={showSearch} setShowSearch={setShowSearch} />
-              <div className="cart">
-                <span>{cart.length}</span>
-                <button onClick={addModal}>
-                  <ShoppingCartIcon />
-                </button>
-              </div>
-              <button type="button" onClick={logOut}>
-                <LogoutIcon />
+            <div className="cart">
+              <span>{cart.length}</span>
+              <button onClick={addModal}>
+                <ShoppingCartIcon />
               </button>
             </div>
+            <button type="button" onClick={logOut}>
+              <LogoutIcon />
+            </button>
           </div>
-        )}
+        </div>
       </Container>
     </StyledNav>
   );

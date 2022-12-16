@@ -2,7 +2,6 @@ import { Container } from "@mui/material";
 import React from "react";
 import logo from "./../../assets/BurguerKenzieLogo.svg";
 import { FiShoppingBag } from "react-icons/fi";
-import { StyledLogin } from "../Login/style";
 import { StyledRegister } from "./style";
 import Form from "../../components/Form";
 import Link from "../../components/Link";
@@ -22,6 +21,7 @@ const Register = () => {
               <span> melhores</span> ingredientes.
             </p>
           </div>
+          <div></div>
         </section>
         <section>
           <div>

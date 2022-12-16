@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { iProduct } from "../pages/Home";
 import { api } from "../services/api";
 import { iProductsContext, iProviderProps } from "./types";
@@ -11,12 +12,16 @@ export const ProductContext = createContext<iProductsContext>(
 export const ProductProvider = ({ children }: iProviderProps) => {
   const { local } = useContext(UserContext);
 
+  const navigate = useNavigate();
+
   const [products, setProducts] = useState([] as iProduct[]);
   const [search, setSearch] = useState("");
 
   useEffect(() => {
     if (local.pathname === "/home") {
       const token = localStorage.getItem("token");
+
+      token === null ? navigate("/login") : null;
 
       const getProducts = async () => {
         const response = await api.get("products", {
@@ -27,7 +32,7 @@ export const ProductProvider = ({ children }: iProviderProps) => {
       };
       getProducts();
     }
-  }, []);
+  }, [local]);
 
   const filter = !search
     ? products

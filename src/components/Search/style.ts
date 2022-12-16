@@ -1,17 +1,17 @@
-import styled, { css } from "styled-components";
-
-interface iButtonStyleSearch {
-  buttonStyleSearch?: string;
-}
+import styled from "styled-components";
 
 export const StyledSearch = styled.div`
   position: relative;
 
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  width: 100%;
+
   > div {
     position: absolute;
-
-    right: 10px;
-    top: 10px;
+    margin-right: 10px;
 
     background-color: var(--color-primary);
 
@@ -23,6 +23,7 @@ export const StyledSearch = styled.div`
     justify-content: center;
 
     border-radius: 8px;
+    z-index: 3;
 
     > svg {
       color: #ffffff;
@@ -30,19 +31,22 @@ export const StyledSearch = styled.div`
   }
 
   > input {
-    width: 100%;
+    position: absolute;
+    min-width: 300px;
+    z-index: 2;
   }
-
-  ${({ buttonStyleSearch }: iButtonStyleSearch) => {
-    switch (buttonStyleSearch) {
-      case "white":
-        return css`
-          color: #ffffff;
-        `;
-      case "grey":
-        return css`
-          color: #bdbdbd;
-        `;
+  @media (max-width: 900px) {
+    > div {
+      right: -95px;
     }
-  }}
+    > input {
+      right: -95px;
+    }
+  }
+  @media (max-width: 315px) {
+    > input {
+      min-width: 40vh;
+      width: 200px;
+    }
+  }
 `;

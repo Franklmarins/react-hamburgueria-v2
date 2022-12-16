@@ -17,7 +17,11 @@ const Search = ({ showSearch, setShowSearch }: iSearchProps) => {
       {showSearch ? (
         <>
           <div>
-            <button onClick={() => setShowSearch(false)}>
+            <button
+              onClick={() => {
+                return setShowSearch(false), setSearch("");
+              }}
+            >
               <SearchIcon style={{ color: "white" }} />
             </button>
           </div>
