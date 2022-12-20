@@ -21,8 +21,6 @@ export const ProductProvider = ({ children }: iProviderProps) => {
     if (local.pathname === "/home") {
       const token = localStorage.getItem("token");
 
-      token === null ? navigate("/login") : null;
-
       const getProducts = async () => {
         const response = await api.get("products", {
           headers: { Authorization: `Bearer ${token}` },
@@ -30,7 +28,8 @@ export const ProductProvider = ({ children }: iProviderProps) => {
 
         setProducts(response.data);
       };
-      getProducts();
+
+      token ? getProducts() : navigate("/login");
     }
   }, [local]);
 

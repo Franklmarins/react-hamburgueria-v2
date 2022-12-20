@@ -10,6 +10,7 @@ export const RountesMain = () => {
       <Route path="register" element={<Register />} />
       <Route path="home" element={<Home />} />
       <Route path="/" element={<Navigate to="/login" replace />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 };
