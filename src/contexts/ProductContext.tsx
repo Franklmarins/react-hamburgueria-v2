@@ -18,19 +18,17 @@ export const ProductProvider = ({ children }: iProviderProps) => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    if (local.pathname === "/home") {
-      const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token");
 
-      const getProducts = async () => {
-        const response = await api.get("products", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+    const getProducts = async () => {
+      const response = await api.get("products", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
 
-        setProducts(response.data);
-      };
+      setProducts(response.data);
+    };
 
-      token ? getProducts() : navigate("/login");
-    }
+    token ? getProducts() : navigate("/login");
   }, [local]);
 
   const filter = !search
