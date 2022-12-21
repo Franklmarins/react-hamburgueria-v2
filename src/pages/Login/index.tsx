@@ -1,12 +1,23 @@
 import { Container } from "@mui/system";
-import React from "react";
+import React, { useEffect } from "react";
 import logo from "./../../assets/BurguerKenzieLogo.svg";
 import { StyledLogin } from "./style";
 import { FiShoppingBag } from "react-icons/fi";
 import Form from "../../components/Form";
 import Link from "../../components/Link";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    if (token) {
+      return navigate("/home");
+    }
+  }, [token]);
+
   return (
     <Container>
       <StyledLogin>
